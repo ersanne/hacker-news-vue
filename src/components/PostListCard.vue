@@ -1,40 +1,21 @@
 <template>
-
-        <v-card v-if="post" style="min-width: 100%">
-            <v-row>
-                <v-col cols="1">
-                    <v-row>
-                        <v-col offset-md="2">
-                            <v-icon>mdi-arrow-up</v-icon>
-                        </v-col>
-                    </v-row>
-                    <v-row>
-                        <v-col offset-md="2">
-                            {{post.score}}
-                        </v-col>
-
-                    </v-row>
-                    <v-row>
-                        <v-col offset-md="2">
-                            <v-icon>mdi-arrow-down</v-icon>
-                        </v-col>
-                    </v-row>
-
-                </v-col>
-                <v-col cols="11">
-                    <v-card-title>
-                        <router-link :to="`/item?id=${postId}`" style="text-decoration: none">
-                        {{post.title}}
-                        </router-link>
-                    </v-card-title>
-                    <v-card-subtitle>
-                        By
-                        <router-link to="/">{{post.by}}</router-link>
-                        ,{{post.time}} ago | hide | {{post.descendants}} comments
-                    </v-card-subtitle>
-                </v-col>
-            </v-row>
+    <v-item v-if="post" v-slot:default="{ active, toggle }">
+        <v-card class="preview-card"
+                :color="active ? 'secondary' : ''"
+                :active="active"
+                @click="toggle">
+            <v-card-title>
+                <a :href="post.url" target="_blank" style="text-decoration: none">
+                    {{post.title}}
+                </a>
+            </v-card-title>
+            <v-card-subtitle>
+                {{post.score}} points, by
+                <router-link to="/">{{post.by}}</router-link>
+                ,{{post.time}} ago | hide | {{post.descendants}} comments
+            </v-card-subtitle>
         </v-card>
+    </v-item>
 </template>
 
 <script>
@@ -60,5 +41,7 @@
 </script>
 
 <style scoped>
-
+    .preview-card {
+        min-width: 100%;
+    }
 </style>
