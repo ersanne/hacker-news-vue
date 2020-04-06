@@ -1,29 +1,7 @@
-# hacker-news-web-app
+# Hacker News in Vue with Vuetify
 
-## Project setup
-```
-yarn install
-```
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3d9051b8-f851-4565-abce-69321e7df10b/deploy-status)](https://app.netlify.com/sites/eriksannecom/deploys)
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+Thanks to Hacker News for their open API!
 
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Feel free to use any of my code!
