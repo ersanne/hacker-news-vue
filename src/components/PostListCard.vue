@@ -6,7 +6,7 @@
                 @click="toggle">
             <v-card-title>
                 <a :href="post.url" target="_blank" style="text-decoration: none">
-                    {{post.title}}
+                    <h2>{{post.title}}</h2>
                 </a>
             </v-card-title>
             <v-card-subtitle>
