@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <splitpanes class="default-theme" style="height: 100%">
-            <pane size="70" min-size="20">
+            <pane size="40" min-size="20">
                 <v-item-group active-class="primary"
                               v-model="selectedIdx"
                 >
@@ -10,7 +10,7 @@
                     </v-row>
                 </v-item-group>
             </pane>
-            <pane size="30" min-size="30">
+            <pane size="60" min-size="30" style="background-color: #ffffff !important;">
                 <div v-if="selectedIdx !== -1">
                     <PostView :postId="selectedStory"></PostView>
                 </div>

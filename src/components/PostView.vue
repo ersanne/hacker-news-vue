@@ -12,14 +12,15 @@
             <v-col>
                 {{post.score}} points, by
                 <router-link to="/">{{post.by}}</router-link>
-                ,{{post.time}} ago | hide | {{post.descendants}} comments
+                ,{{post.time}} | hide | {{post.descendants}} comments
             </v-col>
         </v-row>
-        <v-row no-gutters>
+        <v-row no-gutters
+               v-for="(comment, i) in post.kids"
+               :key="i"
+        >
             <v-col>
-                <Comment v-for="(comment, i) in post.kids"
-                         :key="i"
-                         :id="comment"
+                <Comment :id="comment"
                          :depth="1"
                 ></Comment>
             </v-col>
@@ -29,6 +30,7 @@
 
 <script>
     import Comment from "@/components/Comment";
+    import moment from 'moment'
 
     export default {
         name: "PostView",
@@ -45,6 +47,7 @@
                   .get(`https://hacker-news.firebaseio.com/v0/item/${this.postId}.json`)
                   .then(response => {
                       this.post = response.data
+                      this.post.time = moment(this.post.time, 'X').fromNow();
                   })
             },
         },
@@ -60,5 +63,4 @@
 </script>
 
 <style scoped>
-
 </style>
