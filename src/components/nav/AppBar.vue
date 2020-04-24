@@ -11,7 +11,7 @@
 <!--                        transition="scale-transition"-->
 <!--                        width="240"-->
 <!--                />-->
-                <h2 class="headline text-uppercase">Hacker News but better</h2>
+                <h2 class="headline text-uppercase">Hacker News Vue</h2>
             </router-link>
         </div>
         <v-spacer></v-spacer>
