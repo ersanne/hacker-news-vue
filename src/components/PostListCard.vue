@@ -1,7 +1,7 @@
 <template>
     <v-item v-if="post" v-slot:default="{ active, toggle }">
         <v-card class="preview-card"
-                :color="active ? 'blue lighten-3' : ''"
+                :color="active ? 'grey darken-4' : ''"
                 :active="active"
                 @click="toggle">
             <v-card-title>

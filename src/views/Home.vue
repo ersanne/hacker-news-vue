@@ -1,16 +1,15 @@
 <template>
     <div class="home">
         <splitpanes class="default-theme" style="height: 100%">
-            <pane size="40" min-size="20">
-                <v-item-group active-class="primary"
-                              v-model="selectedIdx"
+            <pane size="35" min-size="20">
+                <v-item-group v-model="selectedIdx"
                 >
                     <v-row v-for="(post, i) in posts" :key="i" @click="viewStory">
                         <PostListCard :post-id="post"></PostListCard>
                     </v-row>
                 </v-item-group>
             </pane>
-            <pane size="60" min-size="30" style="background-color: #ffffff !important;">
+            <pane size="65" min-size="30">
                 <div v-if="selectedIdx !== -1">
                     <PostView :postId="selectedStory"></PostView>
                 </div>
@@ -57,12 +56,35 @@
     }
 </script>
 
-<style lang="scss">
-    /*.dark-theme {*/
-    /*    .default-theme .splitpanes--vertical > .splitpanes__splitter {*/
-    /*        min-width: 7px;*/
-    /*        background: red;*/
-    /*    }*/
-    /*}*/
+<style>
+    /* Pane background */
+    .splitpanes.default-theme .splitpanes__pane {
+        background-color: inherit;
+    }
 
+    /* Main splitter */
+    .splitpanes.default-theme .splitpanes__splitter {
+        background-color: #373737;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        position: relative;
+        -ms-flex-negative: 0;
+        flex-shrink: 0
+    }
+
+    /* Vertical Splitter*/
+    .default-theme.splitpanes--vertical>.splitpanes__splitter,
+    .default-theme .splitpanes--vertical>.splitpanes__splitter {
+        width: 7px;
+        border-left: 1px solid #373737;
+        margin-left: -1px
+    }
+
+    /* Horizontal Splitter */
+    .default-theme.splitpanes--horizontal>.splitpanes__splitter,
+    .default-theme .splitpanes--horizontal>.splitpanes__splitter {
+        height: 7px;
+        border-top: 1px solid #ee00b2;
+        margin-top: -1px
+    }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <v-card v-if="comment" :class="`mb-1 ${this.$vuetify.theme.dark ? 'dark-section' : 'light-section'}`">
-        <v-card-title>
+        <v-card-title class="py-0">
             <small>
                 <a class="pr-1">{{comment.by}}</a>
                 {{comment.time}}
@@ -10,7 +10,7 @@
             </small>
         </v-card-title>
         <div v-if="!hidden">
-            <v-card-text>
+            <v-card-text class="pt-0">
                 <p class="pl-2 mb-0" v-html="comment.text"></p>
             </v-card-text>
             <v-row no-gutters
@@ -20,7 +20,7 @@
                 <v-col>
                     <!-- :style="'padding-left:' + 5*depth + '%'" -->
                     <Comment :id="comment"
-                             class="pl-3"
+                             class="pl-4"
                              :depth="depth + 1"
                     ></Comment>
                 </v-col>

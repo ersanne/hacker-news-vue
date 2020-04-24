@@ -55,8 +55,10 @@
             this.getPost()
         },
         watch: {
-            postId: function () {
-                this.getPost()
+            postId: function (oldVal, newVal) {
+                if(oldVal !== newVal) {
+                    this.getPost()
+                }
             }
         }
     }
